@@ -298,6 +298,111 @@ const StartupRegistration = () => {
               className="w-full border rounded px-4 py-2"
               placeholder="Enter number of orders"
             />
+            <label className="block font-semibold">Burn Rate</label>
+            <input
+              type="number"
+              {...register("burnrate")}
+              className="w-full border rounded px-4 py-2"
+              placeholder="Enter Burn Rate"
+            />
+            <label className="block font-semibold">Churn Rate</label>
+            <input
+              type="number"
+              {...register("churnrate")}
+              className="w-full border rounded px-4 py-2"
+              placeholder="Enter Churn rate"
+            />
+             <label className="block font-semibold">Monthly active users</label>
+            <input
+              type="number"
+              {...register("monthlyactiveusers")}
+              className="w-full border rounded px-4 py-2"
+              placeholder="Enter Monthly Active Users"
+            />
+          </div>
+        </div>
+
+           {/* Funding */}
+           <div className="bg-yellow-50 p-6 rounded-lg shadow-md">
+          <h2 className="text-xl font-bold mb-4 text-yellow-600">Funding</h2>
+          {/* Funding Provided Earlier */}
+          <div>
+            <label className="block font-semibold">Funding Provided Earlier?</label>
+            <select
+              {...register("fundingProvided")}
+              onChange={(e) => setFundingProvided(e.target.value)}
+              className="w-full border rounded px-4 py-2"
+            >
+              <option value="">Select Option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+
+          {/* Conditional Rendering of Funding Status and Investor Name */}
+          {fundingProvided === "Yes" && (
+            <>
+              <div>
+                <label className="block font-semibold">Funding Status</label>
+                <select
+                  {...register("fundingStatus")}
+                  className="w-full border rounded px-4 py-2"
+                >
+                  <option value="">Select Funding Status</option>
+                  <option>Bootstrap</option>
+                  <option>Preseed Funding</option>
+                  <option>Seed Funding</option>
+                  <option>Angel Investor</option>
+                  <option>Series Funding (A/B/C/D)</option>
+                </select>
+              </div>
+              <div>
+                <label className="block font-semibold">Investor Name</label>
+                <input
+                  type="text"
+                  {...register("investorName")}
+                  className="w-full border rounded px-4 py-2"
+                  placeholder="Enter investor name"
+                />
+              </div>
+            </>
+          )}
+        </div>
+
+        {/* Additional Info */}
+        <div className="bg-purple-50 p-6 rounded-lg shadow-md">
+          <h2 className="text-xl font-bold mb-4 text-purple-600">Additional Info</h2>
+          <div>
+            <label className="block font-semibold">No. of Patents Registered</label>
+            <input
+              type="number"
+              {...register("patents")}
+              className="w-full border rounded px-4 py-2"
+              placeholder="Enter number of patents"
+            />
+          </div>
+          <div>
+            <label className="block font-semibold">No. of Research Papers Published</label>
+            <input
+              type="number"
+              {...register("researchPapers")}
+              className="w-full border rounded px-4 py-2"
+              placeholder="Enter number of research papers"
+            />
+          </div>
+        </div>
+
+        {/* Team Info */}
+        <div className="bg-teal-50 p-6 rounded-lg shadow-md">
+          <h2 className="text-xl font-bold mb-4 text-teal-600">Team Info</h2>
+          <div>
+            <label className="block font-semibold">Team Size *</label>
+            <input
+              type="number"
+              {...register("teamSize", { required: true })}
+              className="w-full border rounded px-4 py-2"
+              placeholder="Enter team size"
+            />
           </div>
         </div>
 
